@@ -9,7 +9,7 @@ function convertToObject(sourceString) {
   const result = {};
 
   sourceString.split(';').forEach((s) => {
-    const [key, value] = s.split(':');
+    const [key, value] = s.trim().split(':');
 
     if (!key || !value) {
       return;
