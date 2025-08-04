@@ -6,12 +6,6 @@
  * @return {object}
  */
 function convertToObject(sourceString) {
-  sourceString.trim().replace(/\s+/g, ' ');
-
-  if (sourceString.length === 0) {
-    return {};
-  }
-
   const result = {};
 
   sourceString.split(';').forEach((s) => {
@@ -21,7 +15,10 @@ function convertToObject(sourceString) {
       return;
     } // Skip invalid lines
 
-    result[key.trim()] = value.trim();
+    const propertyKey = key.trim();
+    const propertyValue = value.trim();
+
+    result[propertyKey] = propertyValue;
   });
 
   return result;
